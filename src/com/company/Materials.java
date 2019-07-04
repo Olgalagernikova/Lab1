@@ -1,33 +1,34 @@
 package com.company;
+
 import java.util.Scanner;
+import java.lang.Math;
 
-public class Paint extends Product {
-    String color;
+public class Materials extends Product {
+    float strength;
 
-    public Paint() {
+    public Materials(){
         super();
     }
 
     @Override
     public void create(){
         super.create();
-        //color=
+        strength=(float)(Math.random() * 1000);
     }
 
     @Override
     public void read(){
         super.read();
-        System.out.println("Цвет: " + color);
+        System.out.println("Прочность: " + strength);
     }
 
     @Override
     public void update(){
         super.update();
-
         Scanner sc=new Scanner(System.in);
-        System.out.print("Введите цвет краски: ");
-        if(sc.hasNextLine()) {
-            color = sc.nextLine();
+        System.out.print("Введите прочность материала: ");
+        if(sc.hasNextFloat()) {
+            strength = sc.nextFloat();
 
         } else {
             System.out.println("Неверный формат!");
@@ -37,6 +38,6 @@ public class Paint extends Product {
     @Override
     public void delete(){
         super.delete();
-        color="";
+        strength=0;
     }
 }

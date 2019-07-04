@@ -1,23 +1,24 @@
 package com.company;
+
 import java.util.Scanner;
 
-public class Paint extends Product {
-    String color;
+public class Instrument extends Product {
+    float power;
 
-    public Paint() {
+    public Instrument(){
         super();
     }
 
     @Override
     public void create(){
         super.create();
-        //color=
+        power=(float)(Math.random()*5000);
     }
 
     @Override
     public void read(){
         super.read();
-        System.out.println("Цвет: " + color);
+        System.out.println("Мощность: " + power);
     }
 
     @Override
@@ -25,9 +26,9 @@ public class Paint extends Product {
         super.update();
 
         Scanner sc=new Scanner(System.in);
-        System.out.print("Введите цвет краски: ");
-        if(sc.hasNextLine()) {
-            color = sc.nextLine();
+        System.out.print("Введите мощность инструмента: ");
+        if(sc.hasNextFloat()) {
+            power = sc.nextFloat();
 
         } else {
             System.out.println("Неверный формат!");
@@ -37,6 +38,7 @@ public class Paint extends Product {
     @Override
     public void delete(){
         super.delete();
-        color="";
+        power=0;
     }
+
 }
