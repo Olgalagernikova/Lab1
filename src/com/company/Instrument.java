@@ -9,6 +9,15 @@ public class Instrument extends Product {
         super();
     }
 
+    public Instrument(String message){
+        this();
+        System.out.println(message);
+    }
+
+    public void getType()
+    {
+        System.out.println("Instrument");
+    }
     @Override
     public void create(){
         super.create();

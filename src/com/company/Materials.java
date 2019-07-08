@@ -10,6 +10,18 @@ public class Materials extends Product {
         super();
     }
 
+    public Materials(String message){
+        this();
+        System.out.println(message);
+
+    }
+
+    public void getType()
+    {
+        System.out.println("Materials");
+    }
+
+
     @Override
     public void create(){
         super.create();
@@ -26,7 +38,7 @@ public class Materials extends Product {
     public void update(){
         super.update();
         Scanner sc=new Scanner(System.in);
-        System.out.print("Введите прочность материала: ");
+        System.out.println("Введите прочность материала: ");
         if(sc.hasNextFloat()) {
             strength = sc.nextFloat();
 

@@ -8,10 +8,22 @@ public class Paint extends Product {
         super();
     }
 
+    public Paint(String message){
+        this();
+        System.out.println(message);
+
+    }
+
+    public void getType(){
+
+        System.out.println("Paint");
+    }
+
+
     @Override
     public void create(){
         super.create();
-        //color=
+        color=randomString();
     }
 
     @Override
@@ -23,9 +35,8 @@ public class Paint extends Product {
     @Override
     public void update(){
         super.update();
-
         Scanner sc=new Scanner(System.in);
-        System.out.print("Введите цвет краски: ");
+        System.out.println("Введите цвет краски: ");
         if(sc.hasNextLine()) {
             color = sc.nextLine();
 

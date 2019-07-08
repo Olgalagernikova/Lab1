@@ -4,12 +4,24 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public abstract class Product implements ICrudAction {
-    static int count = 0;
-    UUID id;
-    String name;
-    String code;
-    float price;
-    String manufacturer;
+    private static int count = 0;
+    private UUID id;
+    private String name;
+    private String code;
+    private float price;
+    private String manufacturer;
+
+
+    public static String randomString() {
+        String tmp = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        int length = (int) (Math.random() * 10 + 5);
+        String s = "";
+        for (int i = 0; i < length; i++)
+            s += tmp.charAt((int) (Math.random() * tmp.length()));
+        return s;
+    }
+
+
 
     public Product(){
         id=UUID.randomUUID();
@@ -18,13 +30,14 @@ public abstract class Product implements ICrudAction {
     @Override
     public void create(){
         count++;
-        //id=(int)(Math.random() * 100);
         price=(float)(Math.random() * 10000);
-        //name
-        //code
-        //manufacturer
+        name=randomString();
+        code=randomString();
+        manufacturer=randomString();
 
     }
+
+    public abstract void getType();
 
     @Override
     public void read(){
@@ -58,17 +71,14 @@ public abstract class Product implements ICrudAction {
 
         System.out.print("Введите цену товара: ");
         if(sc.hasNextFloat()) {
-            price = sc.nextFloat();
-
+            price = Float.parseFloat(sc.nextLine());
         } else {
             System.out.println("Неверный формат!");
         }
 
-
         System.out.print("Введите производитель товара: ");
         if(sc.hasNextLine()) {
             manufacturer = sc.nextLine();
-
         } else {
             System.out.println("Неверный формат!");
         }
